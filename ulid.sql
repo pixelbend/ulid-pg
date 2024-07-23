@@ -1,6 +1,6 @@
 create extension if not exists pgcrypto;
 
-create or replace function gen_random_ulid()
+create or replace function gen_ulid()
     returns text
 as
 $$
