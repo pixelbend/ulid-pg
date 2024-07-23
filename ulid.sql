@@ -1,4 +1,3 @@
--- generate a random ulid
 create extension if not exists pgcrypto;
 
 create or replace function gen_random_ulid()
@@ -12,7 +11,7 @@ declare
     output    text  = '';
     unix_time bigint;
     ulid      bytea;
-BEGIN
+begin
     unix_time = (extract(epoch from clock_timestamp()) * 1000)::bigint;
     timestamp = set_byte(timestamp, 0, (unix_time >> 40)::bit(8)::integer);
     timestamp = set_byte(timestamp, 1, (unix_time >> 32)::bit(8)::integer);
@@ -54,8 +53,8 @@ BEGIN
     output = output || chr(get_byte(encoding, ((get_byte(ulid, 14) & 3) << 3) | ((get_byte(ulid, 15) & 224) >> 5)));
     output = output || chr(get_byte(encoding, (get_byte(ulid, 15) & 31)));
 
-    RETURN output;
-END
+    return output;
+end 
 $$
-    LANGUAGE plpgsql
-    VOLATILE;
+    language plpgsql
+    volatile;
