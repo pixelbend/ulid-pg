@@ -1,17 +1,17 @@
-create extension if not exists pgcrypto;
+CREATE EXTENSION IF NOT EXISTS pgcrypto;
 
-create or replace function gen_ulid()
-    returns text
-as
+CREATE OR REPLACE FUNCTION gen_ulid()
+    RETURNS text
+AS
 $$
-declare
+DECLARE
     -- Crockford's Base32
     encoding  bytea = '0123456789ABCDEFGHJKMNPQRSTVWXYZ';
     timestamp bytea = E'\\000\\000\\000\\000\\000\\000';
     output    text  = '';
     unix_time bigint;
     ulid      bytea;
-begin
+BEGIN
     unix_time = (extract(epoch from clock_timestamp()) * 1000)::bigint;
     timestamp = set_byte(timestamp, 0, (unix_time >> 40)::bit(8)::integer);
     timestamp = set_byte(timestamp, 1, (unix_time >> 32)::bit(8)::integer);
@@ -53,8 +53,8 @@ begin
     output = output || chr(get_byte(encoding, ((get_byte(ulid, 14) & 3) << 3) | ((get_byte(ulid, 15) & 224) >> 5)));
     output = output || chr(get_byte(encoding, (get_byte(ulid, 15) & 31)));
 
-    return output;
-end 
+    RETURN output;
+END
 $$
-    language plpgsql
-    volatile;
+    LANGUAGE plpgsql
+    VOLATILE;
