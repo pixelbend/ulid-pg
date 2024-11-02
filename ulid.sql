@@ -58,3 +58,12 @@ END
 $$
     LANGUAGE plpgsql
     VOLATILE;
+
+DO
+$$
+    BEGIN
+        CREATE DOMAIN ulid AS text CHECK (value ~ '^[0-9a-zA-Z]{26}$');
+    EXCEPTION
+        WHEN duplicate_object THEN null;
+    END
+$$;
