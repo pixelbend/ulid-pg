@@ -1,3 +1,3 @@
 # ULID Pg
 
-## A pure plgsql based ULID implementation
+## A pure plpgsql based ULID implementation
