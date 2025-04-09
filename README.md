@@ -15,8 +15,8 @@ The ULID is a 26-character string composed of:
 
 ```pseudo
 01HXZ6Z9RY3X8DQ5FHP5G0JKYV
-└──────┬──────┘ └───────┬────────┘
-  Timestamp      Random Entropy
+└─────┬─────┘ └─────┬─────┘
+  Timestamp   Random Entropy
 ```
 
 - **Lexicographically Sortable**: ULIDs sort by creation time.
