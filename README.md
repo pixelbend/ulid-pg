@@ -6,8 +6,6 @@ ULID (Universally Unique Lexicographically Sortable Identifier) is a modern alte
 
 This PostgreSQL implementation allows you to generate ULIDs natively using a `plpgsql` function. It encodes a 128-bit value consisting of a timestamp and randomness using Crockford’s Base32 format.
 
----
-
 ## Structure of ULID
 
 The ULID is a 26-character string composed of:
@@ -24,8 +22,6 @@ The ULID is a 26-character string composed of:
 - **Lexicographically Sortable**: ULIDs sort by creation time.
 - **Globally Unique**: 80 bits of randomness ensures uniqueness.
 - **URL-Safe**: Uses Crockford's Base32, safe for file paths and URLs.
-
----
 
 ## Usage of Pg-ULID
 
