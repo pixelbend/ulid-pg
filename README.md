@@ -23,7 +23,7 @@ The ULID is a 26-character string composed of:
 - **Globally Unique**: 80 bits of randomness ensures uniqueness.
 - **URL-Safe**: Uses Crockford's Base32, safe for file paths and URLs.
 
-## Usage of Pg-ULID
+## Usage of ULID Pg
 
 Once you’ve installed the function from `ulid.sql` in your PostgreSQL instance, you can use it as follows.
 
