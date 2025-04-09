@@ -31,7 +31,7 @@ The ULID is a 26-character string composed of:
 
 Once you’ve installed the function from `ulid.sql` in your PostgreSQL instance, you can use it as follows.
 
-### Generating ULIDs
+- Generating ULID
 
 ```sql
 -- Generate a ULID
@@ -39,7 +39,7 @@ select gen_ulid();
 -- Result: 01HXZ6Z9RY3X8DQ5FHP5G0JKYV
 ```
 
-### Defining ULID as Primary Key
+- Defining ULID
 
 ```sql
 -- Create a table using ULIDs as primary keys
