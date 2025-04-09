@@ -42,7 +42,7 @@ select gen_ulid();
 - Defining ULID
 
 ```sql
--- Create a table using ULIDs as primary keys
+-- Creating a users table with ULID as primary keys
 create table users (
   id varchar(256) default gen_ulid() primary key,
   name varchar(256) not null,
