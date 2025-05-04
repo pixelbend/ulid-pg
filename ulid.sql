@@ -58,3 +58,20 @@ END
 $$
     LANGUAGE plpgsql
     VOLATILE;
+
+CREATE OR REPLACE FUNCTION check_ulid(
+    id text
+)
+    RETURNS boolean
+AS
+$$
+BEGIN
+    IF id ~ '^[0-9A-Z]{26}$' THEN
+        RETURN true;
+    ELSE
+        RETURN false;
+    END IF;
+END
+$$
+    LANGUAGE plpgsql
+    IMMUTABLE;
