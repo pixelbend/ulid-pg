@@ -31,7 +31,7 @@ Once you’ve installed the function from `ulid.sql` in your PostgreSQL instance
 
 ```sql
 -- Generate a ULID
-select gen_ulid();
+SELECT gen_ulid();
 -- Result: 01HXZ6Z9RY3X8DQ5FHP5G0JKYV
 ```
 
@@ -39,11 +39,11 @@ select gen_ulid();
 
 ```sql
 -- Creating a users table with ULID as primary keys
-create table users (
-  id varchar(256) default gen_ulid() primary key,
-  name varchar(256) not null,
-  email varchar(256) not null,
-  created_at timestamptz default now() not null,
-  updated_at timestamptz
+CREATE TABLE users (
+  id TEXT DEFAULT gen_ulid() PRIMARY KEY,
+  name TEXT NOT NULL,
+  email TEXT NOT NULL,
+  created_at TIMESTAMPTZ DEFAULT now() NOT NULL,
+  updated_at TIMESTAMPTZ
 );
 ```
